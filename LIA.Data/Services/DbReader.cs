@@ -46,17 +46,17 @@ namespace LIA.Data.Services
 
         public IEnumerable<TEntity> GetWithIncludes<TEntity>() where TEntity : class
         {
-            //Tar fram namnen
+            //Get all names
             var entityNames = GetEntityNames<TEntity>();
 
-            //Gör (i detta fall UserProduct) tillgänglig
+            //Access to CourseContext 
             var dbset = _db.Set<TEntity>();
 
-            //Slår ihop namnen på entiteterna
+            //Merge the names of the entities
             var entities = entityNames.collections.Union(entityNames.references);
 
-            //Loppar igenom entitetsnamnet och laddar tillgängliga entiteter
-            // dvs. entiteter som har namn
+            //Loop through entities and load all name entities
+
             foreach (var entity in entities)
                 _db.Set<TEntity>().Include(entity).Load();
 
