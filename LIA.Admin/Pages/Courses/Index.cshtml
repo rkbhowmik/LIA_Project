@@ -7,6 +7,7 @@
 
 <h2>Index</h2>
 
+
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -23,7 +24,7 @@
                     @Html.DisplayNameFor(model => model.Course[0].Image)
                 </th>
             <th>
-                @Html.DisplayNameFor(model => model.Course[0].Author)
+                @Html.DisplayNameFor(model => model.Course[0].Author.Name)
             </th>
             <th></th>
         </tr>
@@ -41,7 +42,7 @@
                 @Html.DisplayFor(modelItem => item.Image)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Author.Id)
+                @Html.DisplayFor(modelItem => item.Author.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

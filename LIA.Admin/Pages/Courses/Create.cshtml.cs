@@ -21,7 +21,7 @@ namespace LIA.Admin.Pages.Courses
 
         public IActionResult OnGet()
         {
-        ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Id");
+        ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Id", "Name", "Name"); // Extra Name is added
             return Page();
         }
 
