@@ -17,6 +17,7 @@
     <ProjectReference Include="..\LIA.Data\LIA.Data.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\Items\" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Pages\Author\" />
   </ItemGroup>
 </Project>

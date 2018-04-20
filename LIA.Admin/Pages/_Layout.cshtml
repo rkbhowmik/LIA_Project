@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -20,13 +20,16 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+                
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">LIA.Admin</a>
+                <a asp-page="/Index" class="navbar-brand">
+                <img alt="Brand" src="~/images/Brand.png" width="125" height="50" style="margin-top: -14px" />
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -42,7 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2017 - LIA.Admin</p>
+            <p>&copy; @DateTime.Now.Year - LIA.Admin</p>
         </footer>
     </div>
 

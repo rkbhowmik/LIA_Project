@@ -11,6 +11,7 @@ namespace LIA.Data.Data.Entities
         [Key]
         public int Id { get; set; }
         public string URL { get; set; }
+        public string  Description { get; set; }
 
         public int ModuleId { get; set; }
         public Module Module { get; set; }
