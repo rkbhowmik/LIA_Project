@@ -20,7 +20,6 @@
     <Folder Include="Data\Migrations\" />
     <Folder Include="Pages\Authors\" />
     <Folder Include="Pages\ItemTypes\" />
-    <Folder Include="Pages\Modules\" />
     <Folder Include="Pages\UserCourses\" />
     <Folder Include="Pages\Users\" />
   </ItemGroup>
