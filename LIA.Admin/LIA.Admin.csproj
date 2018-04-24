@@ -18,7 +18,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Pages\ItemTypes\" />
     <Folder Include="Pages\UserCourses\" />
     <Folder Include="Pages\Users\" />
   </ItemGroup>

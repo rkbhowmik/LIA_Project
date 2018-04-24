@@ -1,5 +1,5 @@
 ﻿@page
-@model LIA.Admin.Pages.Users.IndexModel
+@model LIA.Admin.Pages.ItemTypes.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -8,32 +8,32 @@
 <h2>Index</h2>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Author[0].Name)
+                    @Html.DisplayNameFor(model => model.ItemType.First().Title)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Author[0].Details)
+                    @Html.DisplayNameFor(model => model.ItemType.First().Description)
                 </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Author) {
+@foreach (var item in Model.ItemType) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Details)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                @*<a asp-page="./Details" asp-route-id="@item.Id">Details</a> |*@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

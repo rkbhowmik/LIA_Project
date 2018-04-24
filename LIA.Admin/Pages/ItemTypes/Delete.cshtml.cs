@@ -7,20 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LIA.Data.Data;
 using LIA.Data.Data.Entities;
+using LIA.Data.Services;
 
-namespace LIA.Admin.Pages.Authors
+namespace LIA.Admin.Pages.ItemTypes
 {
     public class DeleteModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        private readonly IDbWriter _writer;
+        private readonly IDbReader _reader;
 
-        public DeleteModel(LIA.Data.Data.CourseContext context)
+
+        public DeleteModel(IDbWriter writer, IDbReader reader)
         {
-            _context = context;
+            _writer = writer;
+            _reader = reader;
         }
 
         [BindProperty]
-        public Author Author { get; set; }
+        public ItemType ItemType { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,28 +33,30 @@ namespace LIA.Admin.Pages.Authors
                 return NotFound();
             }
 
-            Author = await _context.Authors.SingleOrDefaultAsync(m => m.Id == id);
+            ItemType = await _reader.Get<ItemType>((int)id);
 
-            if (Author == null)
+            if (ItemType == null)
             {
                 return NotFound();
             }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync()
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return Page();
             }
 
-            Author = await _context.Authors.FindAsync(id);
 
-            if (Author != null)
+            try
             {
-                _context.Authors.Remove(Author);
-                await _context.SaveChangesAsync();
+                await _writer.Remove<ItemType>(ItemType);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
             }
 
             return RedirectToPage("./Index");

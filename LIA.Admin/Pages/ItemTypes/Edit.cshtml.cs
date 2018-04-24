@@ -8,20 +8,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LIA.Data.Data;
 using LIA.Data.Data.Entities;
+using LIA.Data.Services;
 
-namespace LIA.Admin.Pages.Authors
+namespace LIA.Admin.Pages.ItemTypes
 {
     public class EditModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        private readonly IDbWriter _writer;
+            private readonly IDbReader _reader;
 
-        public EditModel(LIA.Data.Data.CourseContext context)
+
+        public EditModel(IDbWriter writer, IDbReader reader)
         {
-            _context = context;
+            _writer = writer;
+            _reader = reader;
         }
 
         [BindProperty]
-        public Author Author { get; set; }
+        public ItemType ItemType { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +34,9 @@ namespace LIA.Admin.Pages.Authors
                 return NotFound();
             }
 
-            Author = await _context.Authors.SingleOrDefaultAsync(m => m.Id == id);
+            ItemType = await _reader.Get<ItemType>((int)id);
 
-            if (Author == null)
+            if (ItemType == null)
             {
                 return NotFound();
             }
@@ -46,30 +50,17 @@ namespace LIA.Admin.Pages.Authors
                 return Page();
             }
 
-            _context.Attach(Author).State = EntityState.Modified;
-
+            
             try
             {
-                await _context.SaveChangesAsync();
+                await _writer.UpdateAsync(ItemType);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AuthorExists(Author.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
                     throw;
-                }
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private bool AuthorExists(int id)
-        {
-            return _context.Authors.Any(e => e.Id == id);
         }
     }
 }
