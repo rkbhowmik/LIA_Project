@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using LIA.Data.Data;
 using LIA.Data.Data.Entities;
 
-namespace LIA.Admin.Pages.Courses
+namespace LIA.Admin.Pages.Authors
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,11 @@ namespace LIA.Admin.Pages.Courses
 
         public IActionResult OnGet()
         {
-        ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Name"); // It shows Name field in create
             return Page();
         }
 
         [BindProperty]
-        public Course Course { get; set; }
+        public Author Author { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -35,7 +34,7 @@ namespace LIA.Admin.Pages.Courses
                 return Page();
             }
 
-            _context.Courses.Add(Course);
+            _context.Authors.Add(Author);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

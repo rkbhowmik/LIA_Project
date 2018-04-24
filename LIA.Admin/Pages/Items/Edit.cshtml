@@ -24,15 +24,15 @@
                 <input asp-for="Item.Description" class="form-control" />
                 <span asp-validation-for="Item.Description" class="text-danger"></span>
             </div>
+
+            @*<div class="form-group">
+            <label asp-for="Item.ItemTypeId" class="control-label"></label>
+            <select asp-for="Item.ItemTypeId" class="form-control" asp-items="ViewBag.ItemTypeId"></select>
+            <span asp-validation-for="Item.ItemTypeId" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
-                <label asp-for="Item.ModuleId" class="control-label"></label>
-                <select asp-for="Item.ModuleId" class="form-control" asp-items="ViewBag.ModuleId"></select>
-                <span asp-validation-for="Item.ModuleId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Item.ItemTypeId" class="control-label"></label>
-                <select asp-for="Item.ItemTypeId" class="form-control" asp-items="ViewBag.ItemTypeId"></select>
-                <span asp-validation-for="Item.ItemTypeId" class="text-danger"></span>
+                <label asp-for="Item.ItemType" class="control-label"></label>
+                <select asp-for="Item.ItemTypeId" class="form-control" asp-items="ViewBag.ItemTypes"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />

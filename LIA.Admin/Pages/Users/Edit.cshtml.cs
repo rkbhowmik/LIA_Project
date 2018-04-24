@@ -8,24 +8,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LIA.Data.Data;
 using LIA.Data.Data.Entities;
-using LIA.Data.Services;
 
-namespace LIA.Admin.Pages.Items
+namespace LIA.Admin.Pages.Authors
 {
     public class EditModel : PageModel
     {
-        private readonly IDbWriter _writer;
-        private readonly IDbReader _reader;
+        private readonly LIA.Data.Data.CourseContext _context;
 
-        public EditModel(IDbWriter writer, IDbReader reader)
+        public EditModel(LIA.Data.Data.CourseContext context)
         {
-            _writer = writer;
-            _reader = reader;
-
+            _context = context;
         }
 
         [BindProperty]
-        public Item Item { get; set; }
+        public Author Author { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -34,18 +30,12 @@ namespace LIA.Admin.Pages.Items
                 return NotFound();
             }
 
-            Item = await _reader.Get<Item>()
-                //.Include(i => i.ItemType)
-                .SingleOrDefaultAsync(m => m.Id == id);
+            Author = await _context.Authors.SingleOrDefaultAsync(m => m.Id == id);
 
-            if (Item == null)
+            if (Author == null)
             {
                 return NotFound();
             }
-
-            ViewData["ItemTypes"] = _reader.GetSelectList<ItemType>("Id", "Title");
-
-            //ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id");
             return Page();
         }
 
@@ -56,23 +46,30 @@ namespace LIA.Admin.Pages.Items
                 return Page();
             }
 
-           try
+            _context.Attach(Author).State = EntityState.Modified;
+
+            try
             {
-                await _writer.UpdateAsync(Item);
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-               
+                if (!AuthorExists(Author.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
                     throw;
-          
+                }
             }
 
             return RedirectToPage("./Index");
         }
 
-        //private bool ItemExists(int id)
-        //{
-        //    return _context.Items.Any(e => e.Id == id);
-        //}
+        private bool AuthorExists(int id)
+        {
+            return _context.Authors.Any(e => e.Id == id);
+        }
     }
 }

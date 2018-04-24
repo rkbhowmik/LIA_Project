@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using LIA.Admin.Data;
 using LIA.Admin.Services;
 using LIA.Data.Data;
+using LIA.Data.Services;
 
 namespace LIA.Admin
 {
@@ -44,6 +45,8 @@ namespace LIA.Admin
             // Register no-op EmailSender used by account confirmation and password reset during development
             // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
             services.AddSingleton<IEmailSender, EmailSender>();
+             services.AddScoped<IDbReader, DbReader>();
+            services.AddScoped<IDbWriter, DbWriter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

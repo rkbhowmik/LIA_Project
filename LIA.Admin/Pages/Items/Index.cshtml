@@ -13,23 +13,24 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Item[0].URL)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Item[0].Description)
-                </th>
             <th>
-                @Html.DisplayNameFor(model => model.Item[0].ItemType)
+                @Html.DisplayNameFor(model => model.Item.First().URL)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Item[0].Module)
+                @Html.DisplayNameFor(model => model.Item.First().Description)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item.First().ItemType)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Item[0].Module)
+        </th>*@
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Item) {
+
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.URL)
@@ -38,11 +39,9 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ItemType.Id)
+                @Html.DisplayFor(modelItem => item.ItemType.Title)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Module.Id)
-            </td>
+
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |

@@ -29,9 +29,9 @@ namespace LIA.Admin.Pages.Items
                 return NotFound();
             }
 
-            Item = await _context.Items
-                .Include(i => i.ItemType)
-                .Include(i => i.Module).SingleOrDefaultAsync(m => m.Id == id);
+            //Item = await _context.Items
+            //    .Include(i => i.ItemType)
+            //    .Include(i => i.Module).SingleOrDefaultAsync(m => m.Id == id);
 
             if (Item == null)
             {

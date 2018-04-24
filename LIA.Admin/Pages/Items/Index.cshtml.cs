@@ -1,31 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using LIA.Data.Data;
 using LIA.Data.Data.Entities;
+using LIA.Data.Services;
 
 namespace LIA.Admin.Pages.Items
 {
     public class IndexModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        IDbReader _db;
+        public IEnumerable<Item> Item { get; set; }
 
-        public IndexModel(LIA.Data.Data.CourseContext context)
+        public IndexModel(IDbReader db)
         {
-            _context = context;
+            _db = db;
         }
 
-        public IList<Item> Item { get;set; }
-
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            Item = await _context.Items
-                .Include(i => i.ItemType)
-                .Include(i => i.Module).ToListAsync();
+            Item = _db.GetWithIncludes<Item>();
         }
     }
 }

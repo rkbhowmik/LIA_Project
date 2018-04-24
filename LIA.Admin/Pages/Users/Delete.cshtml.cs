@@ -10,15 +10,16 @@ using LIA.Data.Data.Entities;
 
 namespace LIA.Admin.Pages.Authors
 {
-    public class DetailsModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly LIA.Data.Data.CourseContext _context;
 
-        public DetailsModel(LIA.Data.Data.CourseContext context)
+        public DeleteModel(LIA.Data.Data.CourseContext context)
         {
             _context = context;
         }
 
+        [BindProperty]
         public Author Author { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -35,6 +36,24 @@ namespace LIA.Admin.Pages.Authors
                 return NotFound();
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Author = await _context.Authors.FindAsync(id);
+
+            if (Author != null)
+            {
+                _context.Authors.Remove(Author);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
         }
     }
 }
