@@ -54,7 +54,7 @@ body {
 }
 
 .hero {
-    background-image:  url("../images/lake.jpg");
+    background-image: linear-gradient(rgba(152,102,0,0.6), rgba(153,106,0,0.2)), url(../images/lake.jpg);
     height: 50vh;
     background-size: cover;
     padding-top: 8vh;

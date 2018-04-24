@@ -22,12 +22,12 @@ namespace LIA.Admin.Services
 
         public IEnumerable<UserPageModel> GetUsers()
         {
-            
+            throw new NotImplementedException();
         }
 
         public UserPageModel GetUser(string userId)
         {
-          
+            throw new NotImplementedException();
         }
 
         public async Task<IdentityResult> AddUserAsync(RegisterUserModel user)
@@ -73,3 +73,4 @@ namespace LIA.Admin.Services
         }
     }
 }
+   
