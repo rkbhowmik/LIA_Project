@@ -1,7 +1,8 @@
+
 @using Microsoft.AspNetCore.Identity
-@using LIA.Admin.Data
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@using LIA.Data.Data.Entities;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

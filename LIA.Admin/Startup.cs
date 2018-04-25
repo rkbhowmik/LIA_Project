@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using LIA.Admin.Data;
 using LIA.Admin.Services;
 using LIA.Data.Data;
 using LIA.Data.Services;
+using LIA.Data.Data.Entities;
 
 namespace LIA.Admin
 {
@@ -31,7 +31,7 @@ namespace LIA.Admin
             services.AddDbContext<CourseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<CourseContext>()
                 .AddDefaultTokenProviders();
 

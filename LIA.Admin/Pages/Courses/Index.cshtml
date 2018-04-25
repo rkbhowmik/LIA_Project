@@ -46,11 +46,11 @@
                 @Html.DisplayFor(modelItem => item.Author.Id)
             </td>
             <td>
-                @*<a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>*@
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
 
-                @Html.Partial("_TableButtonPartial", new IndividualButtonPartial{ServiceId = item.Id})
+                
             </td>
         </tr>
 }
