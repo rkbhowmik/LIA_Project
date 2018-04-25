@@ -47,6 +47,7 @@ namespace LIA.Admin
             services.AddSingleton<IEmailSender, EmailSender>();
              services.AddScoped<IDbReader, DbReader>();
             services.AddScoped<IDbWriter, DbWriter>();
+            services.AddScoped<IUserInfoService, UserInfoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

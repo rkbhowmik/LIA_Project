@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using LIA.Admin.Data;
+using LIA.Data.Data.Entities;
 
 namespace LIA.Admin.Pages.Account.Manage
 {

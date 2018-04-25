@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using LIA.Admin.Data;
+using LIA.Data.Data.Entities;
 using LIA.Admin.Services;
 
 namespace LIA.Admin.Pages.Account.Manage
