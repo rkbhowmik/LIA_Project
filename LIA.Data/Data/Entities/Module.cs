@@ -11,6 +11,8 @@ namespace LIA.Data.Data.Entities
         [Key]
         public int Id { get; set; }
 
+        public string Title { get; set; }
+
         //public List<Item> Items { get; set; }
 
         public Course CourseId { get; set; }
