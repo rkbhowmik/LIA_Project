@@ -14,13 +14,17 @@
     <thead>
         <tr>
             <th>
-
-            </th>
+                @Html.DisplayNameFor(model => model.Module.First().Title)
+            </th>    
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Module) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
