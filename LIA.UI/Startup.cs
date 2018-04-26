@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using LIA.UI.Data;
 using LIA.UI.Models;
 using LIA.UI.Services;
+using LIA.Data.Data.Entities;
+using LIA.Data.Data;
+using LIA.Data.Services;
 
 namespace LIA.UI
 {
@@ -26,16 +29,18 @@ namespace LIA.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<CourseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
-
+            services.AddScoped<IDbReader, DbReader>();
             services.AddMvc();
         }
 
