@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LIA.Admin\LIA.Admin.csproj" />
     <ProjectReference Include="..\LIA.Data\LIA.Data.csproj" />
   </ItemGroup>
 
