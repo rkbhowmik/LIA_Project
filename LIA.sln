@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIA.Data", "LIA.Data\LIA.Data.csproj", "{0FB0B167-AA6D-4F70-B84E-9A4B9FCD5C5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIA.Admin", "LIA.Admin\LIA.Admin.csproj", "{EAB53B02-902F-4466-AE0B-9CB82F7062DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LIA.Admin", "LIA.Admin\LIA.Admin.csproj", "{EAB53B02-902F-4466-AE0B-9CB82F7062DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIA.UI", "LIA.UI\LIA.UI.csproj", "{7A85605D-F718-4829-8262-23023D1F6DB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EAB53B02-902F-4466-AE0B-9CB82F7062DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAB53B02-902F-4466-AE0B-9CB82F7062DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAB53B02-902F-4466-AE0B-9CB82F7062DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A85605D-F718-4829-8262-23023D1F6DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A85605D-F718-4829-8262-23023D1F6DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A85605D-F718-4829-8262-23023D1F6DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A85605D-F718-4829-8262-23023D1F6DB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

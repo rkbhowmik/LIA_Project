@@ -69,10 +69,5 @@ namespace LIA.Admin.Pages.Items
 
             return RedirectToPage("./Index");
         }
-
-        //private bool ItemExists(int id)
-        //{
-        //    return _context.Items.Any(e => e.Id == id);
-        //}
     }
 }

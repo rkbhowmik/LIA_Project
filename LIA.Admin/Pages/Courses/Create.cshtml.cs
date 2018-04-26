@@ -12,9 +12,9 @@ namespace LIA.Admin.Pages.Courses
 {
     public class CreateModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        private readonly CourseContext _context;
 
-        public CreateModel(LIA.Data.Data.CourseContext context)
+        public CreateModel(CourseContext context)
         {
             _context = context;
         }

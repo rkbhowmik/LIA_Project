@@ -37,7 +37,7 @@ namespace LIA.Admin.Pages.Courses
             {
                 return NotFound();
             }
-           ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Id");
+           ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Name");
             return Page();
         }
 

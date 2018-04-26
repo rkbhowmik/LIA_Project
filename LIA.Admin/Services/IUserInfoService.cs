@@ -15,7 +15,5 @@ namespace LIA.Admin.Services
         Task<IdentityResult> AddUserAsync(RegisterUserModel user);
         Task<bool> UpdateUserAsync(UserPageModel user);
         Task<bool> DeleteUser(string userId);
-
-
     }
 }
