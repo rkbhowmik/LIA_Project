@@ -15,6 +15,6 @@ namespace LIA.Data.Services
         SelectList GetSelectList<TEntity>(string valueString, string textField) where TEntity : class;
         TEntity Get<TEntity>(string userId, int id) where TEntity : class;
         User Get(string userId);
-
+        List<Course> GetCourses(string userId);
     }
 }

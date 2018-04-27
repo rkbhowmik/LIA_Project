@@ -17,33 +17,29 @@ namespace LIA.Admin.Pages.Users
             _db = db;
         }
 
-        /*
+       
         [BindProperty]
-        public Item Item { get; set; }
+        public UserPageModel UserPageModel { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Item = await _db.GetUsers()
-                //.Include(i => i.ItemType)
-                .SingleOrDefaultAsync(m => m.Id == id);
+            UserPageModel = _db.GetUser(id);
+               
 
-            if (Item == null)
+            if (UserPageModel == null)
             {
                 return NotFound();
             }
 
-            ViewData["ItemTypes"] = _reader.GetSelectList<ItemType>("Id", "Title");
-
-            //ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id");
-            return Page();
+             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+ /*        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {

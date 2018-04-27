@@ -38,6 +38,17 @@ namespace LIA.Data.Services
             return _db.Set<User>().Find(new object[] { userId });
         }
 
+        public List<Course> GetCourses(string userId)
+        {
+            var courses =
+                from uc in _db.UserCourses
+                join course in _db.Courses on uc.CourseId equals course.Id
+                where uc.UserId == userId
+                select course;
+
+            return courses.ToList();
+        }
+
         public SelectList GetSelectList<TEntity>(string valueField, string textField) where TEntity : class
         {
             var items = Get<TEntity>();

@@ -24,18 +24,17 @@
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
                         <span class="glyphicon glyphicon-envelope"></span>
-                        <input asp-for="Email" class="form-control  active" placeholder="Enter Email" />
+                        <input asp-for="Email" class="form-control  active inputText" placeholder="Enter Email" />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <span class="glyphicon glyphicon-lock"></span>
-                        <input asp-for="Password" class="form-control" placeholder="Enter Password" />
+                        <input asp-for="Password" class="form-control inputText" placeholder="Enter Password" />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <div class="checkbox">
-                           
-                            <label asp-for="RememberMe" style="color: white">
+                                <label asp-for="RememberMe" style="color: white">
                                 <input asp-for="RememberMe" />
                                 @Html.DisplayNameFor(m => m.RememberMe)
                             </label>

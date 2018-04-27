@@ -13,7 +13,7 @@ namespace LIA.Data.Data.Entities
 
         public string Title { get; set; }
 
-        //public List<Item> Items { get; set; }
+        public List<Item> Items { get; set; }
 
         public Course CourseId { get; set; }
 

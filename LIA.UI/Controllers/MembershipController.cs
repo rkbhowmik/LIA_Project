@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LIA.Data.Data.Entities;
 using LIA.Data.Services;
+using LIA.UI.Models.Membership;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -26,9 +27,23 @@ namespace LIA.UI.Controllers
             _signInManager = signInManager;
             userId = _userManager.GetUserId(_signInManager.Context.User);
         }
-        public IActionResult Index()
+
+        public IActionResult Dashboard()
         {
-            return View();
+            var model = new DashboardViewModel();
+            model.Courses = new List<List<Course>>();
+
+            var courses = _reader.GetCourses(userId);
+
+            var numberOfRows = courses.Count() <= 3 ? 1 :
+                courses.Count() / 3;
+
+            for (int i = 0; i < numberOfRows; i++)
+            {
+                model.Courses.Add(courses.Skip(i * 3).Take(3).ToList());
+            }
+
+            return View(model);
         }
     }
 }

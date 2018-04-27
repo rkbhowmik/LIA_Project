@@ -14,21 +14,6 @@ body {
     padding-right: 15px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
@@ -38,9 +23,9 @@ body {
     }
 }
 
- .checkbox input[type="checkbox"] {
-    margin-top: -10px!important;
-}
+/*.checkbox input[type="checkbox"] {
+    margin-top: -10px !important;
+}*/
 main-section {
     margin: 0 auto;
     margin-top: 130px;
@@ -71,7 +56,7 @@ main-section {
     margin-bottom: 25px;
 }
 
-.form-group input {
+.form-group .inputText {
     height: 42px;
     border-radius: 5px;
     border: 0;
@@ -84,7 +69,7 @@ main-section {
     margin: 5px 0 25px;
 }
 
-.btn {
+.btn1 {
     background-color: #27c2a5;
     color: #fff;
     font-size: 18px;
@@ -93,7 +78,7 @@ main-section {
     border-bottom: 4px solid #219882;
 }
 
-.btn:hover, .btn:focus {
+.btn1:hover, .btn1:focus {
     background-color: #25a890!important;
     border-bottom: 4px solid #25a890!important;
 }
