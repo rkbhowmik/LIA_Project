@@ -39,7 +39,7 @@ namespace LIA.Admin.Pages.Users
              return Page();
         }
 
- /*        public async Task<IActionResult> OnPostAsync()
+       public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
@@ -48,9 +48,9 @@ namespace LIA.Admin.Pages.Users
 
             try
             {
-                await _writer.UpdateAsync(Item);
+                await _db.UpdateUserAsync(UserPageModel);
             }
-            catch (DbUpdateConcurrencyException)
+            catch
             {
 
                 throw;
@@ -59,9 +59,5 @@ namespace LIA.Admin.Pages.Users
 
             return RedirectToPage("./Index");
         }
-        public void OnGet()
-        {
-
-        }*/
     }
 }

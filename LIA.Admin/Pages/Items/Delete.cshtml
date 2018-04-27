@@ -25,17 +25,18 @@
             @Html.DisplayFor(model => model.Item.Description)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Item.ItemType)
+            @Html.DisplayNameFor(model => model.Item.ItemType.Title)
         </dt>
+
         <dd>
-            @Html.DisplayFor(model => model.Item.ItemType.Id)
+            @Html.DisplayFor(model => model.Item.ItemType.Title)
         </dd>
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Item.Module)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Item.Module.Id)
-        </dd>
+        </dd>*@
     </dl>
     
     <form method="post">

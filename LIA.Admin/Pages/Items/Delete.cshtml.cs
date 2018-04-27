@@ -22,17 +22,14 @@ namespace LIA.Admin.Pages.Items
         [BindProperty]
         public Item Item { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            //Item = await _context.Items
-            //    .Include(i => i.ItemType)
-            //    .Include(i => i.Module).SingleOrDefaultAsync(m => m.Id == id);
-
+            Item =_context.Items.Include("ItemType").FirstOrDefault(i=>i.Id.Equals(id));
             if (Item == null)
             {
                 return NotFound();

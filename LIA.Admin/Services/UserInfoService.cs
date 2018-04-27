@@ -71,7 +71,7 @@ namespace LIA.Admin.Services
 
         public async Task<bool> UpdateUserAsync(UserPageModel user)
         {
-            var dbUser = await _db.Users.FirstOrDefaultAsync(d => d.Id.Equals(userId));
+            var dbUser = await _db.Users.FirstOrDefaultAsync(d => d.Id.Equals(user.Id));
             if (dbUser == null) return false;
             if (string.IsNullOrEmpty(user.Email)) return false;
 

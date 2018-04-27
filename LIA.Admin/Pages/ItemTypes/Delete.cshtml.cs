@@ -54,9 +54,9 @@ namespace LIA.Admin.Pages.ItemTypes
             {
                 await _writer.Remove<ItemType>(ItemType);
             }
-            catch (DbUpdateConcurrencyException)
+            catch
             {
-                throw;
+               
             }
 
             return RedirectToPage("./Index");
