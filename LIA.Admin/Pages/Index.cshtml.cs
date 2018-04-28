@@ -20,7 +20,7 @@ namespace LIA.Admin.Pages
 		IDbReader _reader;
         
 
-        public IndexModel(IDbReader reader, IUserInfoService db)
+        public IndexModel(IDbReader reader)
         {
           _reader = reader;
         }

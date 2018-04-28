@@ -1,7 +1,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: rgb(243, 236, 236);
+    
 }
 
 /* Wrapping element */
@@ -40,4 +40,40 @@ body {
     left: 20px;
     border: 5px solid black;
 
+}
+
+/*-------Admin Dashboard-------*/
+
+.Author {
+    background-color: #cc57e0;
+}
+
+.Course {
+    background-color: #009688;
+}
+
+.User {
+    background-color: #414141;
+}
+
+.Module {
+    background-color: #f44336;
+}
+
+.UserCourse {
+    background-color: #176c37;
+}
+
+.ItemType {
+    background-color: #288dfa;
+}
+
+.icon {
+    font-size: 50px;
+    text-align: right;
+    position: absolute;
+    top: 7px;
+    right: 27px;
+    outline: none;
+    opacity: 0.5;
 }

@@ -4,10 +4,73 @@
     ViewData["Title"] = "Home page";
 }
 
-
-
 <h3>Admin DashBoard</h3>
 <hr />
+<div class="container" style="padding: 30px">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="list-group">
+                <a class="list-group-item google-plus Author ttt" style="margin-bottom: 10px;">
+                    <h3 class="pull-right">
+                        <i class="icon glyphicon glyphicon-user"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">@ViewBag.AuthorCounter</h4>
+                    @if (ViewBag.AuthorCounter == 1)
+                    {<p class="list-group-item-text">Instructor </p>}
+                    else
+                    {<p class="list-group-item-text">Instructors </p>}
+                </a>
+                <a class="list-group-item visitor Course ttt" style="margin-bottom: 10px;">
+                    <h3 class="pull-right">
+                        <i class="icon glyphicon glyphicon-time"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">
+                        1000
+                    </h4>
+                    <p class="list-group-item-text">Duration</p>
+                </a>
+                <a class="list-group-item facebook-like ItemType ttt">
+                    <h3 class="pull-right">
+                        <i class="icon glyphicon glyphicon-road"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">
+                        1000
+                    </h4>
+                    <p class="list-group-item-text">Distance</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="list-group">
+                <a class="list-group-item google-plus ttt" style="margin-bottom: 10px;">
+                    <h3 class="pull-right">
+                        <i class="icon glyphicon glyphicon-user"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">3</h4>
+                    <p class="list-group-item-text">Instructors</p>
+                </a>
+                <a class="list-group-item visitor ttt" style="margin-bottom: 10px;">
+                    <h3 class="pull-right">
+                        <i class="icon glyphicon glyphicon-time"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">
+                        1000
+                    </h4>
+                    <p class="list-group-item-text">Duration</p>
+                </a>
+                <a class="list-group-item facebook-like ttt">
+                    <h3 class="pull-right">
+                        <i class="icon glyphicon glyphicon-road"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading count">
+                        1000
+                    </h4>
+                    <p class="list-group-item-text">Distance</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row" style="padding: 25px">
     <div class="col-sm-6 text-right">
