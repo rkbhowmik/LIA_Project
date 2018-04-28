@@ -41,26 +41,3 @@ body {
     border: 5px solid black;
 
 }
-
-.hero {
-    background-image: linear-gradient(rgba(152,102,0,0.6), rgba(153,106,0,0.2)), url(../images/lake.jpg);
-    height: 50vh;
-    background-size: cover;
-    padding: 8vh 0 6vh 4vh;
-}
-
-.texture h1 {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    font-size: 6rem;
-    color: coral;
-    text-shadow: 1px 1px 1px #000;
-}
-
-.texture p {
-    font-family: 'Arvo', serif;
-    font-size: 2rem;
-    line-height: 1.3;
-    text-shadow: 1px 1px 1px #000;
-    
-}

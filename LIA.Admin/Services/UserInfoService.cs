@@ -20,8 +20,6 @@ namespace LIA.Admin.Services
             _db = db;
             _userManager = userManager;
         }
-
-
         
         public IEnumerable<UserPageModel> GetUsers()
         {
