@@ -46,26 +46,37 @@ body {
 
 .Author {
     background-color: #cc57e0;
+    margin-bottom: 10px;
 }
 
 .Course {
     background-color: #009688;
+    margin-bottom: 10px;
 }
 
 .User {
     background-color: #414141;
+    margin-bottom: 10px;
 }
 
 .Module {
     background-color: #f44336;
+    margin-bottom: 10px;
+    /*box-shadow: 2px 2px rgba(152,165,0,0.7);*/
 }
 
 .UserCourse {
     background-color: #176c37;
+    margin-bottom: 10px;  
 }
 
 .ItemType {
     background-color: #288dfa;
+    margin-bottom: 10px;   
+}
+
+.Item {
+    background-color: #ffcc00;
 }
 
 .icon {
@@ -76,4 +87,8 @@ body {
     right: 27px;
     outline: none;
     opacity: 0.5;
+}
+
+.list-group-item-heading, .list-group-item-text {
+    color: white!important;
 }

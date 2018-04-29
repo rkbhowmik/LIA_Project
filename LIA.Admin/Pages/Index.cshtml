@@ -10,93 +10,92 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="list-group">
-                <a class="list-group-item google-plus Author ttt" style="margin-bottom: 10px;">
+                <a href="./Authors" class="list-group-item Author">
                     <h3 class="pull-right">
                         <i class="icon glyphicon glyphicon-user"></i>
                     </h3>
-                    <h4 class="list-group-item-heading count">@ViewBag.AuthorCounter</h4>
-                    @if (ViewBag.AuthorCounter == 1)
+                    <h4 class="list-group-item-heading ">@ViewBag.authorCounter</h4>
+                    @if (ViewBag.authorCounter == 1)
                     {<p class="list-group-item-text">Instructor </p>}
                     else
                     {<p class="list-group-item-text">Instructors </p>}
                 </a>
-                <a class="list-group-item visitor Course ttt" style="margin-bottom: 10px;">
+
+                <a href="./Courses" class="list-group-item Course">
                     <h3 class="pull-right">
-                        <i class="icon glyphicon glyphicon-time"></i>
+                        <i class="icon glyphicon glyphicon-blackboard"></i>
                     </h3>
-                    <h4 class="list-group-item-heading count">
-                        1000
+                    <h4 class="list-group-item-heading">
+                        @ViewBag.courseCounter
                     </h4>
-                    <p class="list-group-item-text">Duration</p>
+                    @if (ViewBag.courseCounter == 1)
+                    {<p class="list-group-item-text">Course </p>}
+                    else
+                    {<p class="list-group-item-text">Courses </p>}
                 </a>
-                <a class="list-group-item facebook-like ItemType ttt">
+
+                <a href="./ItemTypes" class="list-group-item ItemType">
                     <h3 class="pull-right">
-                        <i class="icon glyphicon glyphicon-road"></i>
+                        <i class="icon glyphicon glyphicon-film"></i>
                     </h3>
-                    <h4 class="list-group-item-heading count">
-                        1000
+                    <h4 class="list-group-item-heading">
+                        @ViewBag.itemTypeCounter
                     </h4>
-                    <p class="list-group-item-text">Distance</p>
+                    @if (ViewBag.itemTypeCounter == 1)
+                    {<p class="list-group-item-text">Resource </p>}
+                    else
+                    {<p class="list-group-item-text">Resources</p>}
+                </a>
+
+                <a href="./Items" class="list-group-item Item">
+                    <h3 class="pull-right">
+                        <i class="icon glyphicon glyphicon-file"></i>
+                    </h3>
+                    <h4 class="list-group-item-heading">
+                        @ViewBag.itemCounter
+                    </h4>
+                    @if (ViewBag.itemCounter == 1)
+                    {<p class="list-group-item-text">Item </p>}
+                    else
+                    {<p class="list-group-item-text">Items</p>}
                 </a>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="list-group">
-                <a class="list-group-item google-plus ttt" style="margin-bottom: 10px;">
+                <a href="./Users" class="list-group-item User">
                     <h3 class="pull-right">
-                        <i class="icon glyphicon glyphicon-user"></i>
+                        <i class="icon glyphicon glyphicon-education"></i>
                     </h3>
-                    <h4 class="list-group-item-heading count">3</h4>
-                    <p class="list-group-item-text">Instructors</p>
+                    <h4 class="list-group-item-heading">xxxx</h4>
+                    <p class="list-group-item-text">xxxxx</p>
                 </a>
-                <a class="list-group-item visitor ttt" style="margin-bottom: 10px;">
+                <a href="./Modules" class="list-group-item Module">
                     <h3 class="pull-right">
-                        <i class="icon glyphicon glyphicon-time"></i>
+                        <i class="icon glyphicon glyphicon-th-list"></i>
                     </h3>
-                    <h4 class="list-group-item-heading count">
-                        1000
+                    <h4 class="list-group-item-heading">
+                        @ViewBag.moduleCounter
                     </h4>
-                    <p class="list-group-item-text">Duration</p>
+                    @if (ViewBag.moduleCounter == 1)
+                    {<p class="list-group-item-text">Module </p>}
+                    else
+                    {<p class="list-group-item-text">Modules </p>}
                 </a>
-                <a class="list-group-item facebook-like ttt">
+                <a href="./UserCourses" class="list-group-item UserCourse">
                     <h3 class="pull-right">
-                        <i class="icon glyphicon glyphicon-road"></i>
+                        <i class="icon glyphicon glyphicon-book"></i>
                     </h3>
-                    <h4 class="list-group-item-heading count">
-                        1000
+                    <h4 class="list-group-item-heading">
+                        @ViewBag.ucCounter
                     </h4>
-                    <p class="list-group-item-text">Distance</p>
+                    @if (ViewBag.ucCounter == 1)
+                    {<p class="list-group-item-text">User Course </p>}
+                    else
+                    {<p class="list-group-item-text">User Courses</p>}
                 </a>
             </div>
         </div>
     </div>
 </div>
-
-<div class="row" style="padding: 25px">
-    <div class="col-sm-6 text-right">
-        <div style="margin-bottom: 10px">
-            <a href="./Courses" type="button" class="btn btn-default btn-lg" style="text-decoration: none">
-                <span class="glyphicon glyphicon-check"></span>&nbsp;Courses
-            </a>
-        </div>
-        <div style="margin-bottom: 10px">
-            <a href="./Items" type="button" class="btn btn-default btn-lg" style="text-decoration: none"><span class="glyphicon glyphicon-sort-by-attributes"></span>&nbsp;Items</a>
-        </div>
-        <div>
-            <a href="./Users" type="button" class="btn btn-default btn-lg" style="text-decoration: none"><span class="glyphicon glyphicon-user"></span>&nbsp;Users</a>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div style="margin-bottom: 10px"><a href="./ItemTypes" type="button" class="btn btn-default btn-lg" style="text-decoration: none">
-            <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Item Types</a>
-        </div>
-        <div style="margin-bottom: 10px"> <a href="./Modules" type="button" class="btn btn-default btn-lg" style="text-decoration: none">
-            <span class="glyphicon glyphicon-check"></span>&nbsp;Modules</a>
-        </div>
-        <div><a href="./Authors" type="button" class="btn btn-default btn-lg" style="text-decoration: none">
-            <span class="glyphicon glyphicon-text-background"></span>&nbsp;Authors</a>
-        </div>
-    </div>
-</div>
-
 

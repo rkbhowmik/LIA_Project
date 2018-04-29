@@ -22,7 +22,7 @@ namespace LIA.Admin.Pages.Users
 
        public void OnGet()
         {
-            Users = _db.GetUsers();
+            Users = _db.GetUsers();           
         }
     }
 }

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LIA.Data.Data;
+﻿using System.Linq;
 using LIA.Data.Data.Entities;
 using LIA.Data.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using LIA.Admin.Services;
 
 namespace LIA.Admin.Pages
 {
@@ -18,8 +12,7 @@ namespace LIA.Admin.Pages
     {
         //public string text;
 		IDbReader _reader;
-        
-
+     
         public IndexModel(IDbReader reader)
         {
           _reader = reader;
@@ -33,18 +26,19 @@ namespace LIA.Admin.Pages
             ViewData["moduleCounter"] = counter.moduleCount;
             ViewData["courseCounter"] = counter.courseCount;
             ViewData["authorCounter"] = counter.authorCount;
-            //ViewData["userCounter"] = counter.userCount;
+            ViewData["ucCounter"] = counter.ucCount;
+          
         }
 
 
-        (int itemCount, int itemTypeCount, int courseCount, int moduleCount, int authorCount) Count()
+        (int itemCount, int itemTypeCount, int courseCount, int ucCount, int moduleCount, int authorCount) Count()
         {
             return (itemCount: _reader.Get<Item>().Count(),
                     itemTypeCount: _reader.Get<ItemType>().Count(),
                     courseCount: _reader.Get<Course>().Count(),
                     moduleCount: _reader.Get<Module>().Count(),
-                    authorCount: _reader.Get<Author>().Count());
+                    authorCount: _reader.Get<Author>().Count(),
+                    ucCount: _reader.Get<UserCourse>().Count());
         }
-
     }
 }
