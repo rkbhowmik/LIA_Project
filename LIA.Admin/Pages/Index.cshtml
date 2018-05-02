@@ -14,9 +14,11 @@
                     <h3 class="pull-right">
                         <i class="icon glyphicon glyphicon-user"></i>
                     </h3>
-                    <h4 class="list-group-item-heading ">@ViewBag.authorCounter</h4>
+                    <h4 class="list-group-item-heading">
+                    @ViewBag.authorCounter
+                    </h4>
                     @if (ViewBag.authorCounter == 1)
-                    {<p class="list-group-item-text">Instructor </p>}
+                    {<p class="list-group-item-text">Instructor</p>}
                     else
                     {<p class="list-group-item-text">Instructors </p>}
                 </a>
@@ -67,8 +69,8 @@
                     <h3 class="pull-right">
                         <i class="icon glyphicon glyphicon-education"></i>
                     </h3>
-                    <h4 class="list-group-item-heading">xxxx</h4>
-                    <p class="list-group-item-text">xxxxx</p>
+                    <h4 class="list-group-item-heading">@ViewBag.userCounter</h4>
+                    <p class="list-group-item-text">User</p>
                 </a>
                 <a href="./Modules" class="list-group-item Module">
                     <h3 class="pull-right">

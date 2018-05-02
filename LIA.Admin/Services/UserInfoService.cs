@@ -21,6 +21,10 @@ namespace LIA.Admin.Services
             _userManager = userManager;
         }
         
+        public int UserCount()
+        {
+            return _db.Users.Count();
+        }
         public IEnumerable<UserPageModel> GetUsers()
         {
             return from user in _db.Users

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using LIA.Admin.Services;
 using LIA.Data.Data.Entities;
 using LIA.Data.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -12,10 +13,11 @@ namespace LIA.Admin.Pages
     {
         //public string text;
 		IDbReader _reader;
-     
-        public IndexModel(IDbReader reader)
+        private readonly IUserInfoService _db;
+        public IndexModel(IDbReader reader, IUserInfoService db)
         {
           _reader = reader;
+            _db = db;
         }
 
         public void OnGet()
@@ -27,18 +29,18 @@ namespace LIA.Admin.Pages
             ViewData["courseCounter"] = counter.courseCount;
             ViewData["authorCounter"] = counter.authorCount;
             ViewData["ucCounter"] = counter.ucCount;
+            ViewData["userCounter"] = counter.userCount;
           
         }
 
 
-        (int itemCount, int itemTypeCount, int courseCount, int ucCount, int moduleCount, int authorCount) Count()
-        {
-            return (itemCount: _reader.Get<Item>().Count(),
+        (int itemCount, int itemTypeCount, int courseCount, int ucCount, int moduleCount, int authorCount, int userCount) Count() => (
+                    itemCount: _reader.Get<Item>().Count(),
                     itemTypeCount: _reader.Get<ItemType>().Count(),
                     courseCount: _reader.Get<Course>().Count(),
+                    ucCount: _reader.Get<UserCourse>().Count(),
                     moduleCount: _reader.Get<Module>().Count(),
                     authorCount: _reader.Get<Author>().Count(),
-                    ucCount: _reader.Get<UserCourse>().Count());
-        }
+                    userCount: _db.UserCount());
     }
 }
