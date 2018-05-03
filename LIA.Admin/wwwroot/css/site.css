@@ -48,37 +48,67 @@ body {
     background-color: #cc57e0;
     margin-bottom: 10px;
 }
+a.list-group-item.Author:hover {
+    opacity: 0.8;
+    color: white;
+    background-color: #cc57e0;
+}
 
 .Course {
     background-color: #009688;
     margin-bottom: 10px;
 }
-
+a.list-group-item.Course:hover {
+    opacity: 0.8;
+    color: white;
+    background-color: #009688;
+}
 .User {
     background-color: #414141;
     margin-bottom: 10px;
 }
-
+a.list-group-item.User:hover {
+    opacity: 0.8;
+    color: white;
+    background-color: #414141;
+}
 .Module {
     background-color: #f44336;
     margin-bottom: 10px;
     /*box-shadow: 2px 2px rgba(152,165,0,0.7);*/
+}
+a.list-group-item.Module:hover {
+    opacity: 0.8;
+    color: white;
+    background-color: #f44336;
 }
 
 .UserCourse {
     background-color: #176c37;
     margin-bottom: 10px;  
 }
-
+a.list-group-item.UserCourse:hover {
+    opacity: 0.8;
+    color: white;
+    background-color: #176c37;
+}
 .ItemType {
     background-color: #288dfa;
     margin-bottom: 10px;   
 }
-
+a.list-group-item.ItemType:hover {
+    opacity: 0.8;
+    color: white;
+    background-color: #288dfa;
+}
 .Item {
     background-color: #ffcc00;
 }
-
+a.list-group-item.Item:hover {
+    opacity: 0.8;
+    color: white;
+    background-color: #ffcc00;
+}
 .icon {
     font-size: 50px;
     text-align: right;
@@ -92,3 +122,8 @@ body {
 .list-group-item-heading, .list-group-item-text {
     color: white!important;
 }
+
+.glyphicon-book, .glyphicon-education {
+    color: #ccc;
+}
+

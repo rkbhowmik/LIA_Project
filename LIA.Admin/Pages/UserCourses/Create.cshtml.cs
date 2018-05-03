@@ -21,14 +21,17 @@ namespace LIA.Admin.Pages.UserCourses
         }
 
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             ViewData["Users"] = _reader.GetSelectList<User>("Id", "Email");
             ViewData["Courses"] = _reader.GetSelectList<Course>("Id", "Title");
+            ViewData["ErrorMessage"] = "";
+            return Page();
+            
         }
 
         [BindProperty]
-        public UserCourse   UserCourses { get; set; }
+        public UserCourse UserCourses { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -37,20 +40,20 @@ namespace LIA.Admin.Pages.UserCourses
                 return Page();
             }
 
+            
             try
             {
-                var success = await _writer.AddAsync(UserCourses); //LÄGG TILL I SERVICEN
-
-                if (success)
-                {
-                    return RedirectToPage("./Index"); // Kan även läggas till i catch blocket nedan
-                }
+                await _writer.AddAsync(UserCourses);
             }
-            catch { }
-            ViewData["Users"] = _reader.GetSelectList<User>("Id", "Email");
-            ViewData["Courses"] = _reader.GetSelectList<Course>("Id", "Name");
+            catch 
+            {
+                ViewData["Users"] = _reader.GetSelectList<User>("Id", "Email");
+                ViewData["Courses"] = _reader.GetSelectList<Course>("Id", "Title");
+                ViewData["ErrorMessage"] = "User has already taken this course";
+                return Page();
+            }
+            return RedirectToPage("./Index");
 
-            return Page();
         }
     }
 }

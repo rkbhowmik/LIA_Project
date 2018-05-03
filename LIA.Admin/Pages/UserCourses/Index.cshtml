@@ -21,18 +21,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var up in Model.UserCourses)
+        @foreach (var uc in Model.UserCourses)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => up.User.Email)
+                    @Html.DisplayFor(modelItem => uc.User.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => up.Course.Title)
+                    @Html.DisplayFor(modelItem => uc.Course.Title)
                 </td>
-                @*<td>
-                    <a class="btn btn-danger glyphicon glyphicon-remove" asp-page="./Delete" asp-route-productId="@up.ProductId" asp-route-userId="@up.UserId"></a>
-                </td>*@
+                <td>
+                    <a class="btn btn-danger glyphicon glyphicon-remove" asp-page="./Delete" asp-route-courseId="@uc.CourseId" asp-route-userId="@uc.UserId"></a>
+                </td>
             </tr>
         }
     </tbody>
