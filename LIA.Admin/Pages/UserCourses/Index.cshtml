@@ -1,0 +1,37 @@
+﻿@page
+@model LIA.Admin.Pages.UserCourses.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCourses[0].User.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserCourses[0].Course.Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var up in Model.UserCourses)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => up.User.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => up.Course.Title)
+                </td>
+                @*<td>
+                    <a class="btn btn-danger glyphicon glyphicon-remove" asp-page="./Delete" asp-route-productId="@up.ProductId" asp-route-userId="@up.UserId"></a>
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

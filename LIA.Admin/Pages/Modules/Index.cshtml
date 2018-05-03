@@ -7,9 +7,9 @@
 
 <h2>Index</h2>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<div>
+    @await Html.PartialAsync("_CreatePageButtonPartial")
+</div>
 <table class="table">
     <thead>
         <tr>

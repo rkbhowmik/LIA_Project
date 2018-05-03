@@ -23,16 +23,17 @@
                 <input asp-for="Author.Details" class="form-control" />
                 <span asp-validation-for="Author.Details" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+            @*<div class="form-group">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>*@
+            @await Html.PartialAsync("_Create-DashboardButtonPartial")
         </form>
     </div>
 </div>
 
-<div>
+@*<div>
     <a asp-page="Index">Back to List</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
