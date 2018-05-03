@@ -1,7 +1,6 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    
 }
 
 /* Wrapping element */
@@ -18,16 +17,15 @@ body {
     position: relative;
 }
 
-.partial-css::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 50px;
-    bottom: -5px;
-    left: 20px;
-    border: 5px solid black;
-
-}
+    .partial-css::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 50px;
+        bottom: -5px;
+        left: 20px;
+        border: 5px solid black;
+    }
 
 /*-------Admin Dashboard-------*/
 
@@ -35,6 +33,7 @@ body {
     background-color: #cc57e0;
     margin-bottom: 10px;
 }
+
 a.list-group-item.Author:hover {
     opacity: 0.8;
     color: white;
@@ -45,24 +44,29 @@ a.list-group-item.Author:hover {
     background-color: #009688;
     margin-bottom: 10px;
 }
+
 a.list-group-item.Course:hover {
     opacity: 0.8;
     color: white;
     background-color: #009688;
 }
+
 .User {
     background-color: #414141;
     margin-bottom: 10px;
 }
+
 a.list-group-item.User:hover {
     opacity: 0.8;
     color: white;
     background-color: #414141;
 }
+
 .Module {
     background-color: #f44336;
     margin-bottom: 10px;
-   }
+}
+
 a.list-group-item.Module:hover {
     opacity: 0.8;
     color: white;
@@ -71,30 +75,36 @@ a.list-group-item.Module:hover {
 
 .UserCourse {
     background-color: #176c37;
-    margin-bottom: 10px;  
+    margin-bottom: 10px;
 }
+
 a.list-group-item.UserCourse:hover {
     opacity: 0.8;
     color: white;
     background-color: #176c37;
 }
+
 .ItemType {
     background-color: #288dfa;
-    margin-bottom: 10px;   
+    margin-bottom: 10px;
 }
+
 a.list-group-item.ItemType:hover {
     opacity: 0.8;
     color: white;
     background-color: #288dfa;
 }
+
 .Item {
     background-color: #ffcc00;
 }
+
 a.list-group-item.Item:hover {
     opacity: 0.8;
     color: white;
     background-color: #ffcc00;
 }
+
 .icon {
     font-size: 50px;
     text-align: right;
@@ -104,10 +114,31 @@ a.list-group-item.Item:hover {
     outline: none;
     opacity: 0.5;
 }
+
 .list-group-item-heading, .list-group-item-text {
-    color: white!important;
+    color: white !important;
 }
+
 .glyphicon-book, .glyphicon-education {
     color: #ccc;
 }
 
+@media screen and (min-width: 420px) {
+    .login-row {
+        width: 350px;
+        margin: 30px auto;
+        background-color: antiquewhite;
+        padding: 5px;
+        box-shadow: 2px 2px 2px #ddd;
+    }
+}
+
+.log-in {
+    background: #ccc;
+    margin: 5px;
+    padding: 25px;
+}
+
+    .log-in.input:focus {
+        border: 2px solid #34b3a0;
+    }
