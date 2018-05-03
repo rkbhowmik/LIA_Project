@@ -8,51 +8,46 @@
 
 <h2>Index</h2>
 
+@await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Course[0].Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Course[0].Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Course[0].Image)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course[0].Image)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Course[0].Author.Name)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Course) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author.Name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-
-                
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Course)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author.Name)
+                </td>
+                <td class="text-right">
+                    @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

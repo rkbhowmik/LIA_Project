@@ -5,12 +5,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h2 style="margin-bottom: 20px">Author Index</h2>
+<div class="well well-lg">
+    <h2> Author</h2>
+</div>
 
-<p>
-    <a asp-page="Create" class="btn btn-success">Create New</a>
-</p>
-
+@await  Html.PartialAsync("_Create-BackToDashboardButtonPartial")
 
 <table class="table table-condensed">
     <thead>
@@ -21,7 +20,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Author[0].Details)
                 </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

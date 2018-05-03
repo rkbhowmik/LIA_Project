@@ -36,6 +36,8 @@
                     Qdemy
                 </a>
             </div>
+
+            @*Admin Menu*@
             <div class="navbar-collapse collapse">
                 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                 {
@@ -44,6 +46,7 @@
                         @await Html.PartialAsync("_AdminMenuPartial")
                     </ul>
                 }
+             @*Admin menu content end*@
 
                  @await Html.PartialAsync("_LoginPartial")
             </div>

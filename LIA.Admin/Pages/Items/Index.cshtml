@@ -7,9 +7,8 @@
 
 <h2>Index</h2>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+@await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
+
 <table class="table">
     <thead>
         <tr>
@@ -23,29 +22,30 @@
                 @Html.DisplayNameFor(model => model.Item.First().ItemType)
             </th>
             @*<th>
-            @Html.DisplayNameFor(model => model.Item[0].Module)
-        </th>*@
-            <th></th>
+                    @Html.DisplayNameFor(model => model.Item[0].Module)
+                </th>*@
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Item) {
+        @foreach (var item in Model.Item)
+        {
 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.URL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ItemType.Title)
-            </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.URL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemType.Title)
+                </td>
 
-            <td>
-                @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
-            </td>
-        </tr>
-}
+                <td>
+                    @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

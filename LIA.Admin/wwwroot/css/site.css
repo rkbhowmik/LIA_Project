@@ -11,19 +11,6 @@ body {
     padding-right: 15px;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
-
 .partial-css {
     width: 100px;
     height: 50px;
@@ -75,8 +62,7 @@ a.list-group-item.User:hover {
 .Module {
     background-color: #f44336;
     margin-bottom: 10px;
-    /*box-shadow: 2px 2px rgba(152,165,0,0.7);*/
-}
+   }
 a.list-group-item.Module:hover {
     opacity: 0.8;
     color: white;
@@ -118,11 +104,9 @@ a.list-group-item.Item:hover {
     outline: none;
     opacity: 0.5;
 }
-
 .list-group-item-heading, .list-group-item-text {
     color: white!important;
 }
-
 .glyphicon-book, .glyphicon-education {
     color: #ccc;
 }

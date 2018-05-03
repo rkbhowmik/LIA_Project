@@ -6,6 +6,7 @@
 
 <h3>Admin DashBoard</h3>
 <hr />
+
 <div class="container" style="padding: 30px">
     <div class="row">
         <div class="col-sm-6">
@@ -70,7 +71,11 @@
                         <i class="icon glyphicon glyphicon-education"></i>
                     </h3>
                     <h4 class="list-group-item-heading">@ViewBag.userCounter</h4>
-                    <p class="list-group-item-text">User</p>
+                    @if (ViewBag.userCounter == 1)
+                    {<p class="list-group-item-text">User </p>}
+                    else
+                    {<p class="list-group-item-text">Users</p>}
+                   
                 </a>
                 <a href="./Modules" class="list-group-item Module">
                     <h3 class="pull-right">
