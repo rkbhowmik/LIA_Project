@@ -5,31 +5,36 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<div class="well well-lg text-center" style="margin: 20px 0 20px 0">
+    <h2> Module/ Index</h2>
+</div>
 
-@await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
+<div class="row" style="padding: 0 10% 0 10%">
+    <div class="panel">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Module.First().Title)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Module)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Module.First().Title)
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Module)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-
-                <td>
-                    @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                        <td class="text-right">
+                            @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
+</div>

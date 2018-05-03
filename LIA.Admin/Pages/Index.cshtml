@@ -4,8 +4,11 @@
     ViewData["Title"] = "Home page";
 }
 
-<h3>Admin DashBoard</h3>
-<hr />
+
+<div class="well well-lg text-center" style="margin: 20px 0 20px 0; box-shadow: 2px 2px 2px darkcyan">
+    <h2> Admin Dashboard</h2>
+</div>
+
 
 <div class="container" style="padding: 30px">
     <div class="row">
@@ -16,7 +19,7 @@
                         <i class="icon glyphicon glyphicon-user"></i>
                     </h3>
                     <h4 class="list-group-item-heading">
-                    @ViewBag.authorCounter
+                        @ViewBag.authorCounter
                     </h4>
                     @if (ViewBag.authorCounter == 1)
                     {<p class="list-group-item-text">Instructor</p>}
@@ -75,7 +78,7 @@
                     {<p class="list-group-item-text">User </p>}
                     else
                     {<p class="list-group-item-text">Users</p>}
-                   
+
                 </a>
                 <a href="./Modules" class="list-group-item Module">
                     <h3 class="pull-right">

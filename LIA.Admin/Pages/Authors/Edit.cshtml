@@ -5,10 +5,10 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<div class="well well-lg text-center" style="margin: 20px 0 20px 0">
+    <h2> Author/ Edit</h2>
+</div>
 
-<h4>Author</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -25,15 +25,13 @@
                 <span asp-validation-for="Author.Details" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Update" class="btn btn-success" />
+                @await Html.PartialAsync("_BackToList-DashboardButtonPartial")
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
