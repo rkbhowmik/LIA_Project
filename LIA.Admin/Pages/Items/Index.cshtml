@@ -16,10 +16,16 @@
             <thead>
                 <tr>
                     <th>
+                        @Html.DisplayNameFor(model => model.Item.First().Title)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Item.First().URL)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Item.First().Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Item.First().ImageUrl)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Item.First().ItemType)
@@ -27,6 +33,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Item.First().Module.Title)
                     </th>
+
                     <th></th>
                 </tr>
             </thead>
@@ -36,10 +43,16 @@
 
                 <tr>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.URL)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ImageUrl)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ItemType.Title)

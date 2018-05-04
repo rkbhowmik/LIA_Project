@@ -11,9 +11,10 @@ using System;
 namespace LIA.Data.Migrations
 {
     [DbContext(typeof(CourseContext))]
-    partial class CourseContextModelSnapshot : ModelSnapshot
+    [Migration("20180504134529_ImageUrlAddedtoItem")]
+    partial class ImageUrlAddedtoItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,8 +67,6 @@ namespace LIA.Data.Migrations
                     b.Property<int>("ItemTypeId");
 
                     b.Property<int>("ModuleId");
-
-                    b.Property<string>("Title");
 
                     b.Property<string>("URL");
 

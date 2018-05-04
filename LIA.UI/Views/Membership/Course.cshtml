@@ -6,13 +6,55 @@
 
 <h2>Course</h2>
 
-<div>
-    <h4>CourseViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-    </dl>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="thumbnail">
+            <img src="http://via.placeholder.com/1024x560" style="width: 100%">
+            <img class="course-image" src="@Model.Course.Image" />
+            <div class="caption">
+                <h3>@Model.Course.Title</h3>
+                <p>@Model.Course.Description</p>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+
+
+<div class="row">
+    @foreach (var module in Model.Modules)
+    {
+        <div class="col-sm-9">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h4>@module.Title</h4>
+                </div>
+                <div class="panel-body">
+                    @foreach (var item in module.Items)
+                    {
+                        <a asp-controller="Membership" asp-action="Item" asp-route-itemid="@item.Id">
+                            <div class="media">
+                                <div class="media-left">
+
+                                    <img class="media-object" src=@item.ImageUrl>
+
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">@item.Title</h4>
+                                    <p>@item.Description</p>
+                                </div>
+                            </div>
+                            <hr />
+                        </a>
+                    }
+                </div>
+
+
+            </div>
+        </div>
+    }
+
+    <div class="col-sm-3">
+        <p style="">Nothing</p>
+    </div>
 </div>

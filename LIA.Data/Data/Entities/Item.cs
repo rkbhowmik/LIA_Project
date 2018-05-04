@@ -10,8 +10,13 @@ namespace LIA.Data.Data.Entities
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name ="Item Title")]
+        public string Title { get; set; }
         public string URL { get; set; }
         public string  Description { get; set; }
+
+        public string ImageUrl { get; set; }
 
         public int ModuleId { get; set; }
         public Module Module { get; set; }
