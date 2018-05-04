@@ -6,10 +6,11 @@
 }
 
 <div class="well well-lg text-center" style="margin: 20px 0 20px 0">
-    <h2> Course/ Index</h2>
+    <h2> User/ Index</h2>
 </div>
 <div class="row" style="padding: 0 10% 0 10%">
     <div class="panel">
+        @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
         <table class="table">
             <thead>
                 <tr>
@@ -19,27 +20,26 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Users.First().IsAdmin)
                     </th>
-                    <th>Actions</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.Users)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IsAdmin)
-                        </td>
-                        <td>
-                            @await Html.PartialAsync("_ButtonPartial", @item.Id)
-                        </td>
-                    </tr>
-                }
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAdmin)
+                    </td>
+                    <td class="text-right">
+                        @await Html.PartialAsync("_ButtonPartial", @item.Id)
+                    </td>
+                </tr>
+        }
             </tbody>
         </table>
     </div>
-    @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
 </div>
 

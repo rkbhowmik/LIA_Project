@@ -11,6 +11,7 @@
 
 <div class="row" style="padding: 0 10% 0 10%">
     <div class="panel">
+        @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
         <table class="table">
             <thead>
                 <tr>
@@ -24,33 +25,32 @@
                         @Html.DisplayNameFor(model => model.Item.First().ItemType)
                     </th>
                     @*<th>
-                            @Html.DisplayNameFor(model => model.Item[0].Module)
-                        </th>*@
+                        @Html.DisplayNameFor(model => model.Item[0].Module)
+                    </th>*@
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.Item)
-                {
+            {
 
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.URL)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ItemType.Title)
-                        </td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.URL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemType.Title)
+                    </td>
 
-                        <td class="text-right">
-                            @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
-                        </td>
-                    </tr>
-                }
+                    <td class="text-right">
+                        @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
+                    </td>
+                </tr>
+        }
             </tbody>
         </table>
     </div>
-    @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
 </div>

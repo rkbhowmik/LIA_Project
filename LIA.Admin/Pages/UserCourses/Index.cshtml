@@ -10,7 +10,7 @@
 
 <div class="row" style="padding: 0 10% 0 10%">
     <div class="panel">
-
+        @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
         <table class="table">
             <thead>
                 <tr>
@@ -25,21 +25,20 @@
             </thead>
             <tbody>
                 @foreach (var uc in Model.UserCourses)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => uc.User.Email)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => uc.Course.Title)
-                        </td>
-                        <td>
-                            <a class="btn btn-danger glyphicon glyphicon-remove" asp-page="./Delete" asp-route-courseId="@uc.CourseId" asp-route-userId="@uc.UserId"></a>
-                        </td>
-                    </tr>
-                }
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => uc.User.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => uc.Course.Title)
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-danger glyphicon glyphicon-remove" asp-page="./Delete" asp-route-courseId="@uc.CourseId" asp-route-userId="@uc.UserId"></a>
+                    </td>
+                </tr>
+        }
             </tbody>
         </table>
     </div>
-    @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
 </div>

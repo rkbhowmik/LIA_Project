@@ -9,11 +9,13 @@
     <h2> Author/ Index</h2>
 </div>
 
+
 <div class="row" style="padding: 0 10% 0 10%">
     <div class="panel">
+        @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
         <table class="table">
             <thead>
-                <tr >
+                <tr>
                     <th>
                         @Html.DisplayNameFor(model => model.Author[0].Name)
                     </th>
@@ -25,22 +27,21 @@
             </thead>
             <tbody>
                 @foreach (var item in Model.Author)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Details)
-                        </td>
-                        <td class="text-right">
-                            @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
-                        </td>
-                    </tr>
-                }
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Details)
+                    </td>
+                    <td class="text-right">
+                        @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
+                    </td>
+                </tr>
+        }
             </tbody>
         </table>
     </div>
-    @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
 </div>
 

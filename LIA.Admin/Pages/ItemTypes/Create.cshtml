@@ -5,12 +5,12 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
-
-<h4>ItemType</h4>
-<hr />
+<div class="well well-lg text-center" style="margin: 20px 0 20px 0">
+    <h2> [""]</h2>
+</div>
 <div class="row">
     <div class="col-md-4">
+        @await Html.PartialAsync("_BackToList-DashboardButtonPartial")
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -24,8 +24,7 @@
                 <span asp-validation-for="ItemType.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Add Now" class="btn btn-success" />
-                @await Html.PartialAsync("_BackToList-DashboardButtonPartial")
+                <input type="submit" value="Add Now" class="btn btn-success" />           
             </div>
         </form>
     </div>

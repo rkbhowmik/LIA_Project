@@ -12,6 +12,7 @@
 
 <div class="row" style="padding: 0 10% 0 10%">
     <div class="panel">
+        @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
         <table class="table">
             <thead>
                 <tr>
@@ -32,29 +33,28 @@
             </thead>
             <tbody>
                 @foreach (var item in Model.Course)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Image)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author.Name)
-                </td>
-                <td class="text-right">
-                    @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
-                </td>
-            </tr>
-}
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author.Name)
+                    </td>
+                    <td class="text-right">
+                        @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
+                    </td>
+                </tr>
+        }
             </tbody>
         </table>
     </div>
-    @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
 </div>
 
 

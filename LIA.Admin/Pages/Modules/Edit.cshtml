@@ -10,6 +10,7 @@
 </div>
 <div class="row">
     <div class="col-md-4">
+        @await Html.PartialAsync("_BackToList-DashboardButtonPartial")
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Module.Id" />
@@ -20,7 +21,6 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Update" class="btn btn-success" />
-                @await Html.PartialAsync("_BackToList-DashboardButtonPartial")
             </div>
         </form>
     </div>
