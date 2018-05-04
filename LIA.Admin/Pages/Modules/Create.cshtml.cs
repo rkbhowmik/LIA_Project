@@ -7,20 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using LIA.Data.Data;
 using LIA.Data.Data.Entities;
+using LIA.Data.Services;
 
 namespace LIA.Admin.Pages.Modules
 {
     public class CreateModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        private readonly IDbWriter _writer;
+        private readonly IDbReader _reader;
 
-        public CreateModel(LIA.Data.Data.CourseContext context)
+        public CreateModel(IDbWriter writer, IDbReader reader)
         {
-            _context = context;
+            _writer = writer;
+            _reader = reader;
         }
 
         public IActionResult OnGet()
         {
+            ViewData["Courses"] = _reader.GetSelectList<Course>("Id", "Title");
             return Page();
         }
 
@@ -34,8 +38,7 @@ namespace LIA.Admin.Pages.Modules
                 return Page();
             }
 
-            _context.Modules.Add(Module);
-            await _context.SaveChangesAsync();
+            await _writer.AddAsync(Module);
 
             return RedirectToPage("./Index");
         }

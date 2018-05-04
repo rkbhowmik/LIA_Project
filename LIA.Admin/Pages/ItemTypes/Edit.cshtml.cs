@@ -55,7 +55,7 @@ namespace LIA.Admin.Pages.ItemTypes
             {
                 await _writer.UpdateAsync(ItemType);
             }
-            catch (DbUpdateConcurrencyException)
+            catch
             {
                     throw;
             }

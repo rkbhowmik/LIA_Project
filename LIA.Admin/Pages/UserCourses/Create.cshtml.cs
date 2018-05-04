@@ -27,7 +27,6 @@ namespace LIA.Admin.Pages.UserCourses
             ViewData["Courses"] = _reader.GetSelectList<Course>("Id", "Title");
             ViewData["ErrorMessage"] = "";
             return Page();
-            
         }
 
         [BindProperty]

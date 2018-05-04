@@ -11,9 +11,10 @@ using System;
 namespace LIA.Data.Migrations
 {
     [DbContext(typeof(CourseContext))]
-    partial class CourseContextModelSnapshot : ModelSnapshot
+    [Migration("20180504113024_ModuleUpdatedWithCorrectFK")]
+    partial class ModuleUpdatedWithCorrectFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,13 +96,17 @@ namespace LIA.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CourseId");
+                    b.Property<int?>("CourseId1");
+
+                    b.Property<int?>("CourseIdId");
 
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
+                    b.HasIndex("CourseId1");
+
+                    b.HasIndex("CourseIdId");
 
                     b.ToTable("Modules");
                 });
@@ -303,7 +308,12 @@ namespace LIA.Data.Migrations
                 {
                     b.HasOne("LIA.Data.Data.Entities.Course", "Course")
                         .WithMany()
-                        .HasForeignKey("CourseId")
+                        .HasForeignKey("CourseId1")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("LIA.Data.Data.Entities.Course", "CourseId")
+                        .WithMany()
+                        .HasForeignKey("CourseIdId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

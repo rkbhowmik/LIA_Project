@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LIA.Data.Data;
 using LIA.Data.Data.Entities;
+using LIA.Data.Services;
 
 namespace LIA.Admin.Pages.Modules
 {
     public class EditModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        private readonly IDbReader _reader;
+        private readonly IDbWriter _writer;
 
-        public EditModel(LIA.Data.Data.CourseContext context)
+        public EditModel(IDbReader reader, IDbWriter writer)
         {
-            _context = context;
+            _reader = reader;
+            _writer = writer;
         }
 
         [BindProperty]
@@ -30,7 +33,8 @@ namespace LIA.Admin.Pages.Modules
                 return NotFound();
             }
 
-            Module = await _context.Modules.SingleOrDefaultAsync(m => m.Id == id);
+            Module = await _reader.Get<Module>((int) id);
+            ViewData["Courses"] = _reader.GetSelectList<Course>("Id", "Title");
 
             if (Module == null)
             {
@@ -46,30 +50,17 @@ namespace LIA.Admin.Pages.Modules
                 return Page();
             }
 
-            _context.Attach(Module).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _writer.UpdateAsync(Module);
             }
-            catch (DbUpdateConcurrencyException)
+            catch
             {
-                if (!ModuleExists(Module.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private bool ModuleExists(int id)
-        {
-            return _context.Modules.Any(e => e.Id == id);
         }
     }
 }

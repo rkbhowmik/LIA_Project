@@ -44,8 +44,7 @@ namespace LIA.Admin.Pages.Items
             }
 
             ViewData["ItemTypes"] = _reader.GetSelectList<ItemType>("Id", "Title");
-
-            //ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id");
+            ViewData["Modules"] = _reader.GetSelectList<Module>("Id", "Title");
             return Page();
         }
 
@@ -60,7 +59,7 @@ namespace LIA.Admin.Pages.Items
             {
                 await _writer.UpdateAsync(Item);
             }
-            catch (DbUpdateConcurrencyException)
+            catch
             {
                
                     throw;

@@ -10,7 +10,7 @@ namespace LIA.Data.Data.Entities
     {
         [Key]
         public int Id { get; set; }
-
+        [Display(Name ="Course Title")]
         public string Title { get; set; }
         public string Description { get; set; }
 

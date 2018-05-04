@@ -11,11 +11,12 @@ namespace LIA.Data.Data.Entities
         [Key]
         public int Id { get; set; }
 
+        [Display(Name = "Module Title")]
         public string Title { get; set; }
 
         public List<Item> Items { get; set; }
 
-        public Course CourseId { get; set; }
+        public int CourseId { get; set; }
 
         public Course Course { get; set; }
     }

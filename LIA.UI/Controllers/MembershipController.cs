@@ -45,5 +45,16 @@ namespace LIA.UI.Controllers
 
             return View(model);
         }
+
+        public IActionResult Course(int courseId)
+        {
+            var course = _reader.GetWithIncludes<Course>().FirstOrDefault(c => c.Id.Equals(courseId));
+
+            // Comparing CourseId in the Module entity with the courseId parameter 
+            var modules = _reader.GetWithIncludes<Module>().Where(m => m.CourseId.Equals(courseId));
+
+            var model = new CourseViewModel { Course = course, Modules = modules.ToList() };
+            return View(model);
+        }
     }
 }

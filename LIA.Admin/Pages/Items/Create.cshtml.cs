@@ -24,8 +24,8 @@ namespace LIA.Admin.Pages.Items
 
         public IActionResult OnGet()
         {
-        ViewData["ItemType"] = _reader.GetSelectList<ItemType>( "Id", "Title");
-       
+            ViewData["ItemType"] = _reader.GetSelectList<ItemType>("Id", "Title");
+            ViewData["Modules"] = _reader.GetSelectList<Module>("Id", "Title");
             return Page();
         }
 

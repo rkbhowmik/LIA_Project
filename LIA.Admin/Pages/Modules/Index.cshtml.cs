@@ -7,23 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LIA.Data.Data;
 using LIA.Data.Data.Entities;
+using LIA.Data.Services;
 
 namespace LIA.Admin.Pages.Modules
 {
     public class IndexModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        private readonly IDbReader _reader;
 
-        public IndexModel(LIA.Data.Data.CourseContext context)
+        public IndexModel(IDbReader reader)
         {
-            _context = context;
+            _reader = reader;
         }
 
         public IList<Module> Module { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            Module = await _context.Modules.ToListAsync();
+            Module = _reader.GetWithIncludes<Module>().ToList();           
         }
     }
 }

@@ -10,6 +10,6 @@ namespace LIA.UI.Models.Membership
     {
         public Course Course { get; set; }
 
-        public List<Item> Items { get; set; }
+        public List<Module> Modules { get; set; }
     }
 }

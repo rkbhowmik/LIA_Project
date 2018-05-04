@@ -9,7 +9,7 @@
     <h2> Item/ Index</h2>
 </div>
 
-<div class="row" style="padding: 0 10% 0 10%">
+<div class="row" style="padding: 0 5% 0 5%">
     <div class="panel">
         @await Html.PartialAsync("_Create-BackToDashboardButtonPartial")
         <table class="table">
@@ -24,9 +24,9 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Item.First().ItemType)
                     </th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.Item[0].Module)
-                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.Item.First().Module.Title)
+                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -44,7 +44,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.ItemType.Title)
                     </td>
-
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Module.Title)
+                    </td>
                     <td class="text-right">
                         @await Html.PartialAsync("_ButtonPartial", @item.Id.ToString())
                     </td>

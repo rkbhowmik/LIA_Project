@@ -7,17 +7,16 @@ namespace LIA.Admin.Pages.Items
 {
     public class IndexModel : PageModel
     {
-        IDbReader _db;
-        public IEnumerable<Item> Item { get; set; }
-
-        public IndexModel(IDbReader db)
+        private readonly IDbReader _reader;
+        public IndexModel(IDbReader reader)
         {
-            _db = db;
+            _reader = reader;
         }
+        public IEnumerable<Item> Item { get; set; }
 
         public void OnGet()
         {
-            Item = _db.GetWithIncludes<Item>();
+            Item = _reader.GetWithIncludes<Item>();
         }
     }
 }
