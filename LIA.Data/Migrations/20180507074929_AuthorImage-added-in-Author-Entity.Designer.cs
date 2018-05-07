@@ -11,9 +11,10 @@ using System;
 namespace LIA.Data.Migrations
 {
     [DbContext(typeof(CourseContext))]
-    partial class CourseContextModelSnapshot : ModelSnapshot
+    [Migration("20180507074929_AuthorImage-added-in-Author-Entity")]
+    partial class AuthorImageaddedinAuthorEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

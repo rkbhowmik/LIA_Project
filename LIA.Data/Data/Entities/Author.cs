@@ -13,6 +13,8 @@ namespace LIA.Data.Data.Entities
         [Display(Name= "Author Name")]
         public string Name { get; set; }
         public string Details { get; set; }
+        [Display(Name="Author Image")]
+        public string ImageUrl { get; set; }
 
         //public List<Course> Courses { get; set; }
 
