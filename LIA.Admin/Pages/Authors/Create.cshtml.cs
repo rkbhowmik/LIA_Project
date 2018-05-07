@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using LIA.Data.Data;
 using LIA.Data.Data.Entities;
+using LIA.Data.Services;
 
 namespace LIA.Admin.Pages.Authors
 {
     public class CreateModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        private readonly IDbWriter _writer;
+        private readonly IDbReader _reader;
 
-        public CreateModel(LIA.Data.Data.CourseContext context)
+        public CreateModel(IDbWriter writer, IDbReader reader)
         {
-            _context = context;
+            _writer = writer;
+            _reader = reader;
         }
 
         public IActionResult OnGet()
@@ -34,8 +37,7 @@ namespace LIA.Admin.Pages.Authors
                 return Page();
             }
 
-            _context.Authors.Add(Author);
-            await _context.SaveChangesAsync();
+            await _writer.AddAsync(Author);
 
             return RedirectToPage("./Index");
         }

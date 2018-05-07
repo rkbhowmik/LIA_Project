@@ -3,23 +3,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LIA.Data.Data.Entities;
+using LIA.Data.Services;
+using System.Linq;
 
 namespace LIA.Admin.Pages.Authors
 {
     public class IndexModel : PageModel
     {
-        private readonly LIA.Data.Data.CourseContext _context;
+        private readonly IDbReader _reader;
 
-        public IndexModel(LIA.Data.Data.CourseContext context)
+        public IndexModel(IDbReader reader)
         {
-            _context = context;
+            _reader = reader;
         }
 
-        public IList<Author> Author { get;set; }
+        public IEnumerable<Author> Author { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            Author = await _context.Authors.ToListAsync();
+            Author =_reader.GetWithIncludes<Author>();
         }
     }
 }

@@ -27,6 +27,11 @@
                 <span asp-validation-for="Author.Details" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Author.ImageUrl" class="control-label"></label>
+                <input asp-for="Author.ImageUrl" class="form-control" />
+                <span asp-validation-for="Author.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Update" class="btn btn-success" />
             </div>
         </form>

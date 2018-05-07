@@ -21,7 +21,6 @@ namespace LIA.Admin.Pages.Items
         {
             _writer = writer;
             _reader = reader;
-
         }
 
         [BindProperty]
@@ -35,7 +34,6 @@ namespace LIA.Admin.Pages.Items
             }
 
             Item = await _reader.Get<Item>()
-                //.Include(i => i.ItemType)
                 .SingleOrDefaultAsync(m => m.Id == id);
 
             if (Item == null)
