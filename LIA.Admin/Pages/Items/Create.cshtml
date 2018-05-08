@@ -15,6 +15,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Item.Title" class="control-label"></label>
+                <input asp-for="Item.Title" class="form-control" />
+                <span asp-validation-for="Item.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Item.URL" class="control-label"></label>
                 <input asp-for="Item.URL" class="form-control" />
                 <span asp-validation-for="Item.URL" class="text-danger"></span>
@@ -24,7 +29,11 @@
                 <input asp-for="Item.Description" class="form-control" />
                 <span asp-validation-for="Item.Description" class="text-danger"></span>
             </div>
-
+            <div class="form-group">
+                <label asp-for="Item.ImageUrl" class="control-label"></label>
+                <input asp-for="Item.ImageUrl" class="form-control" />
+                <span asp-validation-for="Item.ImageUrl" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Item.ItemType" class="control-label"></label>
                 <select asp-for="Item.ItemTypeId" class="form-control" asp-items="ViewBag.ItemType"></select>

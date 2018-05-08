@@ -1,0 +1,53 @@
+﻿@using LIA.Data.Data.Entities
+@model LIA.UI.Models.Membership.VideoViewModel
+
+
+
+@{
+    ViewData["Title"] = "Video";
+}
+
+<div class="row">
+    <a asp-controller="Membership" asp-action="Dashboard" class="btn btn-primary dashboard-ui-btn">
+        <span class="glyphicon glyphicon-chevron-left"></span>Back to Dashboard
+    </a>
+
+    <a asp-controller="Membership" asp-action="Course" asp-route-courseid="@Model.Item.Module.CourseId" class="btn btn-info dashboard-ui-btn">
+        <span class="glyphicon glyphicon-chevron-left"></span>Back to Course
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel">
+            <div class="panel-heading">
+                <div id="hiddenUrl" hidden="hidden">@Model.Item.URL</div>
+                <video id="video" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls preload="auto"></video>
+                <h4>@Model.Item.Title</h4>
+                <p>@Model.Item.Description</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel">
+            <div class="panel-heading text-center">
+                <img class="img-circle" src="@Model.Author.ImageUrl" />
+                <h3>@Model.Author.Name</h3>
+                <h4> Instructor</h4>
+                <p>@Model.Author.Details</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        $(function () {
+            videoJS($("#hiddenUrl").text());
+        });
+    </script>
+}

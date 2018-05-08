@@ -13,9 +13,11 @@ namespace LIA.Data.Data.Entities
 
         [Display(Name ="Item Title")]
         public string Title { get; set; }
+              
         public string URL { get; set; }
         public string  Description { get; set; }
 
+        [Display(Name = "Image Url")]
         public string ImageUrl { get; set; }
 
         public int ModuleId { get; set; }

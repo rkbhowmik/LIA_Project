@@ -56,5 +56,16 @@ namespace LIA.UI.Controllers
             var model = new CourseViewModel { Course = course, Modules = modules.ToList() };
             return View(model);
         }
+        public async Task<IActionResult> Video(int itemId)
+        {
+            var item = _reader.GetWithIncludes<Item>().FirstOrDefault(it=>it.Id.Equals(itemId));
+// Fetching Author through the course, it belongs to
+            // FirstOrDefault is used for first occurance if there is many
+            //if there is none null will be returned
+            var author = _reader.GetWithIncludes<Course>().FirstOrDefault(it => it.Id.Equals(item.Module.CourseId)).Author;
+            var model = new VideoViewModel { Author = author, Item = item };
+          
+            return View(model);
+        }
     }
 }

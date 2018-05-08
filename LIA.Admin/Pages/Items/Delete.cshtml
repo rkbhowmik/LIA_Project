@@ -14,6 +14,12 @@
     @await Html.PartialAsync("_BackToList-DashboardButtonPartial")
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Item.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.Title)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Item.URL)
         </dt>
         <dd>
@@ -33,11 +39,11 @@
             @Html.DisplayFor(model => model.Item.ItemType.Title)
         </dd>
         @*<dt>
-                @Html.DisplayNameFor(model => model.Item.Module)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Item.Module.Id)
-            </dd>*@
+            @Html.DisplayNameFor(model => model.Item.Module)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.Module.Id)
+        </dd>*@
     </dl>
 
     <form method="post">

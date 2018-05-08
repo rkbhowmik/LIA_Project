@@ -5,6 +5,7 @@ body {
     padding-bottom: 20px;
     font-family: Roboto, sans-serif;
     background-color: #f2f2f2;
+    margin-top: 50px;
 }
 
 /* Wrapping element */
@@ -78,4 +79,33 @@ main-section {
     bottom: 158px;
     left: 50px;
     border: 1px solid #000;
+}
+
+.seperator {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.custom-Item:hover {
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+.dashboard-ui-btn {
+    margin: 20px 0px 20px 17px;
+}
+
+.thumbnail .caption {
+    padding-bottom: 0px;
+}
+
+.navbar-brand {
+    display: block; 
+    float: none;
+    height: auto;
+    margin: 0 !important; 
+    padding: 0 20px 0 0;
 }

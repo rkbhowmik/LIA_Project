@@ -4,13 +4,18 @@
     ViewData["Title"] = "Course";
 }
 
-<h2>Course</h2>
+<div class="row">
+    <a asp-controller="Membership" asp-action="Dashboard" class="btn btn-primary dashboard-ui-btn">
+        <span class="glyphicon glyphicon-chevron-left"></span>Back to Dashboard
+    </a>
+</div>
 
 
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 col-md-12">
         <div class="thumbnail">
-            <img src="http://via.placeholder.com/1024x560" style="width: 100%">
+          
+            <img src="~/images/hero.png" style="width: 100%"/>
             <img class="course-image" src="@Model.Course.Image" />
             <div class="caption">
                 <h3>@Model.Course.Title</h3>
@@ -22,39 +27,53 @@
 
 
 <div class="row">
-    @foreach (var module in Model.Modules)
-    {
-        <div class="col-sm-9">
+    <div class="col-md-9">
+        @foreach (var module in Model.Modules)
+        {
             <div class="panel">
                 <div class="panel-heading">
                     <h4>@module.Title</h4>
                 </div>
                 <div class="panel-body">
-                    @foreach (var item in module.Items)
+
+
+                    @foreach (var item in module.Items.OrderBy(it=>it.ItemTypeId))
                     {
-                        <a asp-controller="Membership" asp-action="Item" asp-route-itemid="@item.Id">
-                            <div class="media">
-                                <div class="media-left">
-
-                                    <img class="media-object" src=@item.ImageUrl>
-
+                        @if (item.ItemTypeId == 1)
+                        {
+                            <a asp-controller="Membership" asp-action="Video" asp-route-itemid="@item.Id" style="text-decoration: none">
+                                <div class="media seperator">
+                                    <div class="media-left">
+                                        <img class="media-object" src=@item.ImageUrl>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">@item.Title</h4>
+                                        <p>@item.Description</p>
+                                    </div>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">@item.Title</h4>
-                                    <p>@item.Description</p>
-                                </div>
-                            </div>
-                            <hr />
-                        </a>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@item.URL" target="_blank">
+                                <span class="glyphicon glyphicon-download-alt"></span> &nbsp;@item.Title
+                            </a>
+
+                        }
                     }
                 </div>
 
-
+            </div>
+        }
+    </div>
+    <div class="col-md-3">
+        <div class="panel">
+            <div class="panel-heading text-center">
+                <img class="img-circle" src="@Model.Course.Author.ImageUrl" />
+                <h3>@Model.Course.Author.Name</h3>
+                <p> Instructor</p>
+                <p>@Model.Course.Author.Details</p>
             </div>
         </div>
-    }
-
-    <div class="col-sm-3">
-        <p style="">Nothing</p>
     </div>
 </div>
