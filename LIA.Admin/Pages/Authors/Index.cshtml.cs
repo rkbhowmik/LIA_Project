@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using LIA.Data.Data.Entities;
 using LIA.Data.Services;
-using System.Linq;
 
 namespace LIA.Admin.Pages.Authors
 {
